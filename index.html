@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Skrining Kesehatan Dasar</title>
+<meta name="description" content="Skrining awal berat badan, tekanan darah, dan risiko gula darah. Bukan diagnosis.">
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+<h1>Skrining kesehatan dasar</h1>
+<p class="lead">Isi data berikut untuk melihat gambaran awal berat badan, tekanan darah, dan risiko gula darah. Hasil ini bukan diagnosis.</p>
+
+<form id="f" novalidate>
+<fieldset><legend>Data diri</legend>
+<div class="grid">
+<label>Nama <small>(opsional)</small><input id="nama" autocomplete="name"></label>
+<label>Usia (tahun)<input id="usia" type="number" min="1" max="120" inputmode="numeric" required></label>
+<label>Jenis kelamin<select id="jk"><option value="L">Laki-laki</option><option value="P">Perempuan</option></select></label>
+</div></fieldset>
+
+<fieldset><legend>Ukuran tubuh</legend>
+<div class="grid">
+<label>Tinggi (cm)<input id="tb" type="number" min="50" max="250" inputmode="decimal" required></label>
+<label>Berat (kg)<input id="bb" type="number" min="10" max="300" inputmode="decimal" required></label>
+<label>Lingkar perut (cm) <small>(opsional)</small><input id="lp" type="number" min="30" max="250" inputmode="decimal"></label>
+</div></fieldset>
+
+<fieldset><legend>Pemeriksaan</legend>
+<div class="grid">
+<label>Tekanan darah atas (sistolik)<input id="sis" type="number" min="60" max="260" inputmode="numeric" placeholder="mmHg"></label>
+<label>Tekanan darah bawah (diastolik)<input id="dia" type="number" min="30" max="160" inputmode="numeric" placeholder="mmHg"></label>
+<label>Gula darah puasa <small>(opsional)</small><input id="gdp" type="number" min="30" max="600" inputmode="numeric" placeholder="mg/dL"></label>
+</div></fieldset>
+
+<fieldset><legend>Kebiasaan dan riwayat</legend>
+<div class="grid">
+<label>Merokok<select id="rokok"><option value="0">Tidak</option><option value="1">Ya</option></select></label>
+<label>Olahraga<select id="olah"><option value="1">Ya, 150 menit/minggu atau lebih</option><option value="0">Kurang dari itu</option></select></label>
+<label>Keluarga inti dengan diabetes atau hipertensi<select id="rw"><option value="0">Tidak</option><option value="1">Ya</option></select></label>
+</div></fieldset>
+
+<div class="row"><button type="submit">Lihat hasil</button><button type="reset" class="ghost" id="reset">Kosongkan</button></div>
+<p id="err" role="alert"></p>
+</form>
+
+<section id="hasil" aria-live="polite" hidden></section>
+
+<p class="note">Batas nilai mengacu pada panduan umum (IMT kategori Asia-Pasifik, klasifikasi tekanan darah, dan kadar gula darah puasa). Alat ini hanya skrining awal dan tidak menggantikan pemeriksaan tenaga kesehatan. Jika ada keluhan atau hasil di luar batas normal, periksakan ke puskesmas atau dokter.</p>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
